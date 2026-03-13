@@ -20,6 +20,14 @@ USE university;
 -- Sort by student count descending, then department name ascending.
 --
 -- Expected columns: name, student_count
+-- My result: 
+
+-- select d.name, COUNT(DISTINCT(sc.studentId)) as student_count
+-- from university.department d
+-- inner join university.course as c ON d.id = c.deptId
+-- inner join university.studentcourse as sc ON c.id = sc.courseId
+-- group by d.name
+-- ORDER by student_count desc, d.name asc
 
 
 -- ============================================================
@@ -30,6 +38,14 @@ USE university;
 -- Sort by last name ascending, first name ascending.
 --
 -- Expected columns: firstName, lastName
+-- My code:
+
+-- select s.firstName, s.lastName
+-- from university.student as s
+-- INNER join university.studentcourse as sc ON s.id = sc.studentId
+-- group by sc.studentId
+-- having COUNT(sc.studentId)>3
+-- order by s.firstName asc , s.lastName asc
 
 
 -- ============================================================
@@ -41,6 +57,15 @@ USE university;
 -- Sort by average progress ascending.
 --
 -- Expected columns: name, AvgProgress
+-- My Code:
+-- select d.name, ROUND(avg(sc.progress),1) as AvgProgress
+-- from university.department as d
+-- inner join university.course as c ON d.id = c.deptId
+-- inner join university.studentcourse as sc ON c.id = sc.courseId
+-- group by d.name
+-- having AvgProgress>60
+-- order by AvgProgress asc;
+
 
 
 -- ============================================================
