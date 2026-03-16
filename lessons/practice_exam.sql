@@ -76,6 +76,13 @@ USE university;
 -- Sort by course count descending, then last name ascending.
 --
 -- Expected columns: firstName, lastName, course_count
+-- MY Code:
+-- USE university; -- Acts as a quick university.faculty
+-- select f.firstName, f.lastName, COUNT(fc.courseId) as course_count
+-- from faculty as f
+-- inner join facultycourse as fc ON f.id = fc.facultyId
+-- group by f.id -- Has to be grouped based on what matches in the ON
+-- order by course_count desc, f.lastName asc
 
 
 -- ============================================================
