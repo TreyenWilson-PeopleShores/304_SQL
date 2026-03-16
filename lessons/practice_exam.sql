@@ -93,7 +93,13 @@ USE university;
 -- Sort by year ascending.
 --
 -- Expected columns: Year, active_courses
-
+-- My Code:
+-- USE university;
+-- select YEAR(sc.startDate) as Year, count(DISTINCT(courseId)) as active_courses
+-- from studentcourse as sc
+-- group by Year
+-- having count(distinct(courseId))>=1
+-- order by Year asc
 
 -- ============================================================
 -- QUESTION 6
@@ -105,6 +111,17 @@ USE university;
 -- Sort by status ascending, then last name ascending.
 --
 -- Expected columns: firstName, lastName, status
+-- MY Code:
+-- USE university;
+-- select s.firstName as "First Name", s.lastName as "Last Name",
+-- case
+--	  when sc.progress>=70 then "On Track"
+--    when sc.progress>=50 then "Needs Improvement"
+--    else "At Risk"
+-- end as Status
+-- from student as s
+-- inner join studentcourse as sc ON s.id = sc.studentId
+-- order by Status asc, s.lastName DESC
 
 
 -- ============================================================
@@ -114,8 +131,13 @@ USE university;
 -- (count distinct students). Display the department name and count.
 --
 -- Expected columns: name, student_count
-
-
+-- MY code:
+-- use university;
+-- select d.name, count(distinct(studentId)) as student_count
+-- from department as d
+-- inner join course as c ON d.id = c.deptId
+-- inner join studentcourse as sc ON c.id = sc.courseId
+-- group by d.name
 
 
 
