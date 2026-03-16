@@ -63,7 +63,7 @@ USE university;
 -- inner join university.course as c ON d.id = c.deptId
 -- inner join university.studentcourse as sc ON c.id = sc.courseId
 -- group by d.name
--- having AvgProgress>60
+-- having AvgProgress<60
 -- order by AvgProgress asc;
 
 
