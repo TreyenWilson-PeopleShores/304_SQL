@@ -80,7 +80,7 @@ USE university;
 -- USE university; -- Acts as a quick university.faculty
 -- select f.firstName, f.lastName, COUNT(fc.courseId) as course_count
 -- from faculty as f
--- inner join facultycourse as fc ON f.id = fc.facultyId
+-- inner join facultycourse as fc ON f.id = fc.facultyId <-- Make LEFT JOIN not INNER JOIN
 -- group by f.id -- Has to be grouped based on what matches in the ON
 -- order by course_count desc, f.lastName asc
 
@@ -121,6 +121,7 @@ USE university;
 -- end as Status
 -- from student as s
 -- inner join studentcourse as sc ON s.id = sc.studentId
+-- Add "group by s.firstName, s.lastName" here
 -- order by Status asc, s.lastName DESC
 
 
@@ -138,8 +139,8 @@ USE university;
 -- inner join course as c ON d.id = c.deptId
 -- inner join studentcourse as sc ON c.id = sc.courseId
 -- group by d.name
-
-
+--  <- add "order by student_count DESC, d.name ASC" here
+--  <- add "limit 1" here
 
 
 
